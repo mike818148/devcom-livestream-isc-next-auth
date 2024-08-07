@@ -13,7 +13,7 @@ export default async function Home() {
   //console.log(configurationParams);
   const apiConfig = new Configuration(configurationParams);
   const param: RequestableObjectsApiListRequestableObjectsRequest = {
-    identityId: session?.user.uid,
+    identityId: session?.user.id,
     types: ["ROLE"],
     statuses: ["AVAILABLE"]
   }
@@ -21,7 +21,7 @@ export default async function Home() {
   const api = new RequestableObjectsApi(apiConfig);
   const requestableRoles: RequestableObject[] = (await api.listRequestableObjects(param)).data;
 
-  console.log(requestableRoles);
+  //console.log(requestableRoles);
   return (
     <AccessRequestForm name={session?.user.name!} email={session?.user.email!} selectableRoles={requestableRoles} />
   );
