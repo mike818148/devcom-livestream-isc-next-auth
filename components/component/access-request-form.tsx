@@ -29,10 +29,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import LogoutButton from "./logout-button"
 import { RequestableObject } from "sailpoint-api-client"
 import { useState } from "react"
 import axios from "axios"
+import { signOut } from "next-auth/react"
 
 interface Props {
   name: string;
@@ -70,7 +70,9 @@ export function AccessRequestForm({ name, email, selectableRoles }: Props) {
             <div className="text-muted-foreground">{email}</div>
           </div>
         </div>
-        <LogoutButton />
+        <Button className="text-white hover:bg-gray-500" onClick={() => signOut()}>
+          Logout
+        </Button>
       </header>
       <div className="flex-1 bg-background p-8 flex items-center justify-center">
         <Card className="w-full max-w-md">
