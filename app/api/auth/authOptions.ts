@@ -12,6 +12,9 @@ export const authOptions: NextAuthOptions = {
       scope: "sp:scopes:all",
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
     async jwt({ token, user, account, profile }) {
       // First login
