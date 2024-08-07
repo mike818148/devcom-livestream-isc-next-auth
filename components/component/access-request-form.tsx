@@ -85,7 +85,7 @@ export function AccessRequestForm({ name, email, selectableRoles }: Props) {
                 <SelectTrigger id="access-type">
                   <SelectValue placeholder="Select role" />
                 </SelectTrigger>
-                <SelectContent onChange={handleChange}>
+                <SelectContent>
                   {selectableRoles.map((role) => <SelectItem key={role.id} value={role.id!}>{role.name}</SelectItem>)}
                 </SelectContent>
               </Select>
